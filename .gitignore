@@ -1,0 +1,52 @@
+# ------------------------
+# Python
+# ------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+wheels/
+*.log
+
+# ------------------------
+# Virtual Environments
+# ------------------------
+.venv/
+venv/
+ENV/
+env/
+**/.venv/
+**/venv/
+
+# ------------------------
+# Jupyter Notebook
+# ------------------------
+.ipynb_checkpoints
+
+# ------------------------
+# Environment variables
+# ------------------------
+.env
+.env.*
+*.env
+
+# ------------------------
+# IDE configs
+# ------------------------
+.idea/
+.vscode/
+*.iml
+
+# ------------------------
+# Mac / Windows system files
+# ------------------------
+.DS_Store
+Thumbs.db

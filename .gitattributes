@@ -1,0 +1,14 @@
+# Всегда храним Python-файлы в LF, независимо от ОС
+*.py text eol=lf
+
+# Markdown и конфиги тоже в LF
+*.md text eol=lf
+*.toml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Игнорируем переносы строк в бинарных файлах
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
