@@ -188,15 +188,15 @@ dict_example = {x: x**2 for x in range(5)}
 ## ▶️ Запуск
 Из данной директории:
 ```bash
-python task1_slices.py
-python task2_list_methods.py
-python task3_word_count.py
-python task4_unique_merge.py
-python task5_tuple_max.py
-python task6_tuple_key.py
-python task7_set_domains.py
-python task8_set_operations.py
-python task9_dict_from_pairs.py
+python task01_slices.py
+python task02_list_methods.py
+python task03_word_count.py
+python task04_unique_merge.py
+python task05_tuple_max.py
+python task06_tuple_key.py
+python task07_set_domains.py
+python task08_set_operations.py
+python task09_dict_from_pairs.py
 python task10_dict_safe_get.py
 python task11_char_freq.py
 python task12_dict_invert.py

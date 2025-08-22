@@ -113,15 +113,15 @@ Comprehensions — быстрый способ создавать коллекц
 ## ▶️ Запуск (быстрый список)
 
 ```bash
-python task1_squares.py
-python task2_evens.py
-python task3_unique_letters.py
-python task4_word_freq.py
-python task5_coordinates.py
-python task6_labels.py
-python task7_fibonacci.py
-python task8_memory_compare.py
-python task9_infinite_evens.py
+python task01_squares.py
+python task02_evens.py
+python task03_unique_letters.py
+python task04_word_freq.py
+python task05_coordinates.py
+python task06_labels.py
+python task07_fibonacci.py
+python task08_memory_compare.py
+python task09_infinite_evens.py
 
 python task10_filter_data.py
 python task11_word_freq_text.py

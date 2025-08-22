@@ -223,15 +223,15 @@ print(factorial(5))  # 120
 ## Запуск
 
 ```bash
-python task1_greet.py
-python task2_greet_name.py
-python task3_add.py
-python task4_greet_default.py
-python task5_args_kwargs.py
-python task6_scope.py
-python task7_multiple_return.py
-python task8_typing.py
-python task9_docstring.py
+python task01_greet.py
+python task02_greet_name.py
+python task03_add.py
+python task04_greet_default.py
+python task05_args_kwargs.py
+python task06_scope.py
+python task07_multiple_return.py
+python task08_typing.py
+python task09_docstring.py
 python task10_lambda.py
 python task11_factorial_recursive.py
 python task12_calculator.py
