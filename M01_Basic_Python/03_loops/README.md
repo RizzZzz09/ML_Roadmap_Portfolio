@@ -132,14 +132,14 @@ print(squares)  # [1, 4, 9, 16, 25]
 ## Запуск
 
 ```bash
-python task1_sum.py
-python task2_factorial.py
-python task3_multiplication_table.py
-python task4_reverse_string.py
-python task5_prime.py
-python task6_skip_even.py
-python task7_square_stars.py
-python task8_enumerate.py
-python task9_zip_lists.py
+python task01_sum.py
+python task02_factorial.py
+python task03_multiplication_table.py
+python task04_reverse_string.py
+python task05_prime.py
+python task06_skip_even.py
+python task07_square_stars.py
+python task08_enumerate.py
+python task09_zip_lists.py
 python task10_list_comprehension.py
 ```

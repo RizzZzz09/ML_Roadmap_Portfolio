@@ -176,8 +176,8 @@ elif score >= 90:
 ## Запуск
 
 ```bash
-python task1_age.py
-python task2_number_sign.py
-python task3_calc_cli.py
-python task4_grade_challenge.py
+python task01_age.py
+python task02_number_sign.py
+python task03_calc_cli.py
+python task04_grade_challenge.py
 ```

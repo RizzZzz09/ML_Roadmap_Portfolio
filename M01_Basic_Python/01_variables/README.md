@@ -110,7 +110,7 @@ data = None
 ## Запуск
 
 ```bash
-python task1_greeting.py
-python task2_add.py
-python task3_check.py
+python task01_greeting.py
+python task02_add.py
+python task03_check.py
 ```
