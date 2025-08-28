@@ -1,5 +1,7 @@
 import argparse
 
+from .utils import storage
+
 
 def parse_number(value: str):
     """Преобразует строку в число (int или float)."""
@@ -43,7 +45,10 @@ def main():
 
     args = parser.parse_args()  # noqa: F841
 
-    # TODO: Step 7.2 — тут будет загрузка истории
+    storage.ensure_history_file("json")
+    path = storage.get_history_path("json")
+    history = storage.load_history_json(path)  # noqa: F841
+
     # TODO: Step 7.3 — тут будет выполнение операций
     # TODO: Step 7.4 — тут будет сохранение истории и вывод
 
