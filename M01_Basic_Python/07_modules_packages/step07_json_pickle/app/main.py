@@ -1,5 +1,6 @@
 import argparse
 
+from .core import operations
 from .utils import storage
 
 
@@ -43,13 +44,42 @@ def main():
         help="Формат хранения истории (по умолчанию json)",
     )
 
-    args = parser.parse_args()  # noqa: F841
+    args = parser.parse_args()
 
     storage.ensure_history_file("json")
     path = storage.get_history_path("json")
-    history = storage.load_history_json(path)  # noqa: F841
+    history = storage.load_history_json(path)
 
-    # TODO: Step 7.3 — тут будет выполнение операций
+    if args.operation:
+        if len(args.operands) != 2:
+            print("Ошибка: нужно указать ровно 2 числа.")
+            return
+
+        a = parse_number(args.operands[0])
+        b = parse_number(args.operands[1])
+        if a is None or b is None:
+            print("Ошибка: операнды должны быть числами.")
+            return
+
+        if args.operation == "div" and b == 0:
+            print("Ошибка: деление на ноль.")
+            return
+
+        if args.operation == "add":
+            result = operations.add(a, b)
+        elif args.operation == "sub":
+            result = operations.sub(a, b)
+        elif args.operation == "mul":
+            result = operations.mul(a, b)
+        elif args.operation == "div":
+            result = operations.div(a, b)
+
+        entry = {
+            "operation": args.operation,
+            "operands": [a, b],
+            "result": result,
+        }
+        history.append(entry)
     # TODO: Step 7.4 — тут будет сохранение истории и вывод
 
 
