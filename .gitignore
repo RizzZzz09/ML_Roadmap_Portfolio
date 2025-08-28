@@ -50,3 +50,9 @@ env/
 # ------------------------
 .DS_Store
 Thumbs.db
+
+# ------------------------
+# Project runtime data
+# ------------------------
+M01_Basic_Python/07_modules_packages/step07_json_pickle/app/data/*.json
+M01_Basic_Python/07_modules_packages/step07_json_pickle/app/data/*.pkl
