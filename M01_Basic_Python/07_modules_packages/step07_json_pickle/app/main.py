@@ -1,4 +1,5 @@
 import argparse
+import json
 
 from .core import operations
 from .utils import storage
@@ -46,9 +47,16 @@ def main():
 
     args = parser.parse_args()
 
-    storage.ensure_history_file("json")
-    path = storage.get_history_path("json")
-    history = storage.load_history_json(path)
+    fmt = args.format
+    storage.ensure_history_file(fmt)
+    path = storage.get_history_path(fmt)
+    history = storage.load_history(path, fmt=fmt)
+
+    if args.clear_history:
+        history = []
+        storage.save_history(history, path, fmt=fmt)
+        print(json.dumps(history, ensure_ascii=False, indent=2))
+        return
 
     if args.operation:
         if len(args.operands) != 2:
@@ -80,7 +88,10 @@ def main():
             "result": result,
         }
         history.append(entry)
-    # TODO: Step 7.4 — тут будет сохранение истории и вывод
+        storage.save_history(history, path, fmt=fmt)
+
+    if args.show_history:
+        print(json.dumps(history, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
