@@ -33,8 +33,11 @@ def get_history_path(fmt: Format = "json") -> Path:
     """
     Возвращает путь к файлу истории: history.json или history.pkl.
 
+    Args:
+        fmt (dict): Формат для записи.
+
     Returns:
-        Path: Путь к файлу сохранения history.json или history.pkl
+        Path: Путь к файлу сохранения history.json или history.pkl.
     """
     dir_path = get_data_dir()
     if fmt == "json":
@@ -48,6 +51,9 @@ def ensure_history_file(fmt: Format = "json") -> Path:
     Проверка, что файл истории существует.
     Если нет — создает пустую историю [] соответствующим форматом.
     Возвращает путь к файлу.
+
+    Args:
+        fmt (dict): Формат для записи.
 
     Returns:
         Path: Путь к файлу сохранения history.json или history.pkl.
@@ -71,6 +77,9 @@ def load_history_json(path: Path) -> List[HistoryEntry]:
     """
     Загружает историю из JSON. Если файл не валидный или пустой возвращает [].
 
+    Args:
+        path (Path): Путь к файлу для сохранения данных.
+
     Returns:
         List: Список истории операций.
     """
@@ -80,29 +89,87 @@ def load_history_json(path: Path) -> List[HistoryEntry]:
 
 
 def save_history_json(history: Iterable[HistoryEntry], path: Path) -> None:
-    """Сохраняет историю в JSON."""
+    """
+    Сохраняет историю в JSON.
+
+    Args:
+        history (Iterable): Операции пользователя.
+        path (Path): Путь к файлу для сохранения операции.
+    """
     data = list(history)
     with open(path, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def load_history_pickle(path: Path) -> List[HistoryEntry]:
-    """Загружает историю из Pickle. Если файл не валидный или пустой возвращает []."""
-    ...
+    """
+    Загружает историю из Pickle.
+    Если файл не валидный или пустой возвращает [].
+
+    Args:
+        path (Path): Путь к файлу с данными об операциях пользователя.
+
+    Returns:
+        data (list): Список операций пользователя.
+    """
+    with open(path, "rb") as file:
+        data = pickle.load(file)
+        if isinstance(data, list):
+            return []
+        return data
 
 
 def save_history_pickle(history: Iterable[HistoryEntry], path: Path) -> None:
-    """Сохраняет историю в Pickle"""
-    ...
+    """
+    Сохраняет историю в Pickle
+
+    Args:
+        history (Iterable): Операции пользователя.
+        path (Path): Путь к файлу для сохранения данных.
+    """
+    with open(path, "wb") as file:
+        data = list(history)
+        pickle.dump(data, file)
 
 
 def load_history(path: Optional[Path] = None, fmt: Format = "json") -> List[HistoryEntry]:
-    """Единая точка загрузки по формату."""
-    ...
+    """
+    Единая точка загрузки по формату.
+
+    Args:
+        path (Path): Путь к файлу для сохранения данных.
+        fmt (dict): Необходимый формат.
+
+    Returns:
+        List: История операций в нужном формате.
+    """
+    if path is None:
+        path = get_history_path(fmt)
+
+    match fmt:
+        case "json":
+            return load_history_json(path)
+        case "pickle":
+            return load_history_pickle(path)
 
 
 def save_history(
     history: Iterable[HistoryEntry], path: Optional[Path] = None, fmt: Format = "json"
 ) -> None:
-    """Единая точка сохранения по формату."""
-    ...
+    """
+    Единая точка сохранения по формату.
+
+    Args:
+        history (Iterable): Операции пользователя.
+        path (Path): путь к файлу для сохранения.
+        fmt (dict): Формат для записи.
+    """
+    if path is None:
+        path = get_history_path(fmt)
+    ensure_data_dir()
+
+    match fmt:
+        case "json":
+            save_history_json(history, path)
+        case "pickle":
+            save_history_pickle(history, path)
