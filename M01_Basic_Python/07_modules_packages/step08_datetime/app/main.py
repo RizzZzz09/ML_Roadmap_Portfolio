@@ -3,7 +3,7 @@ import json
 from datetime import datetime, timezone
 
 from .core import operations
-from .utils import storage
+from .utils import storage, utils_datetime
 
 
 def parse_number(value: str):
@@ -24,7 +24,7 @@ def main():
         "operation",
         choices=["add", "sub", "mul", "div"],
         nargs="?",
-        help="Операция: add, sub, mul, div",
+        help="Операция: сложение (add), вычитание (sub), умножение (mul), деление (div)",
     )
     parser.add_argument("operands", nargs="*", help="Операнды (числа)")
 
@@ -44,6 +44,17 @@ def main():
         choices=["json", "pickle"],
         default="json",
         help="Формат хранения истории (по умолчанию json)",
+    )
+    parser.add_argument(
+        "--time-format",
+        choices=["iso", "short", "long"],
+        default="iso",
+        help="Формат отображения времени в истории (по умолчанию iso)",
+    )
+    parser.add_argument(
+        "--tz",
+        default="Europe/Riga",
+        help="Часовой пояс для истории (например, Europe/Riga, UTC); по умолчанию Europe/Riga",
     )
 
     args = parser.parse_args()
@@ -93,7 +104,29 @@ def main():
         storage.save_history(history, path, fmt=fmt)
 
     if args.show_history:
-        print(json.dumps(history, ensure_ascii=False, indent=2))
+        if args.time_format == "iso":
+            print(json.dumps(history, ensure_ascii=False, indent=2))
+            return
+
+        display = []
+        for entry in history:
+            iso_ts = entry.get("timestamp")
+            if not iso_ts:
+                pass
+
+            dt_aware = utils_datetime.from_iso(iso_ts)
+            dt_local = utils_datetime.to_local(dt_aware, args.tz)
+
+            shown = (
+                utils_datetime.format_short(dt_local)
+                if args.time_format == "short"
+                else utils_datetime.format_long(dt_local)
+            )
+
+            display.append({**entry, "display_timestamp": shown})
+
+        print(json.dumps(display, ensure_ascii=False, indent=2))
+        return
 
 
 if __name__ == "__main__":
