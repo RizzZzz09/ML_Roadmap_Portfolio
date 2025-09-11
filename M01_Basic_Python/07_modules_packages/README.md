@@ -22,25 +22,25 @@ M01_Basic_Python/
     ├── step08_datetime/
     ├── step09_random/
     ├── step10_collections/
-    ├── step11_functools/   (запланировано)
+    ├── step11_functools_lru_cache/
     └── step12_itertools/   (запланировано)
 ```
 
 ## 📊 Прогресс по шагам
-| Шаг | Тема                         | Статус | Основные файлы |
-|-----|------------------------------|--------|----------------|
-| 01  | импорты                      | ✅ | `check_import.py` |
-| 02  | структура пакета             | ✅ | `app/main.py`, `core/operations.py` |
-| 03  | __main__                     | ✅ | `runner.py`, `app/main.py` |
-| 04  | __all__ / calculator pkg     | ✅ | `calculator/*.py` |
-| 05  | CLI через argparse           | ✅ | `app/main.py` |
-| 06  | работа с файловой системой   | ✅ | `utils/storage.py` |
-| 07  | сериализация (JSON/Pickle)   | ✅ | `data/history.json`, `data/history.pkl` |
-| 08  | datetime                     | ✅ | `utils/utils_datetime.py`, practice tasks |
+| Шаг | Тема                         | Статус | Основные файлы                                         |
+|-----|------------------------------|--------|--------------------------------------------------------|
+| 01  | импорты                      | ✅ | `check_import.py`                                      |
+| 02  | структура пакета             | ✅ | `app/main.py`, `core/operations.py`                    |
+| 03  | __main__                     | ✅ | `runner.py`, `app/main.py`                             |
+| 04  | __all__ / calculator pkg     | ✅ | `calculator/*.py`                                      |
+| 05  | CLI через argparse           | ✅ | `app/main.py`                                          |
+| 06  | работа с файловой системой   | ✅ | `utils/storage.py`                                     |
+| 07  | сериализация (JSON/Pickle)   | ✅ | `data/history.json`, `data/history.pkl`                |
+| 08  | datetime                     | ✅ | `utils/utils_datetime.py`, practice tasks              |
 | 09  | random                       | ✅ | `task01_seed_repeat.py` … `task13_queue_simulation.py` |
 | 10  | collections.Counter          | ✅ | `task01_point_distance.py` … `task12_lru_cache_sim.py` |
-| 11  | functools.lru_cache          | ❌ | запланировано |
-| 12  | itertools                    | ❌ | запланировано |
+| 11  | functools.lru_cache          | ✅ | `demo_cache.py`                                        |
+| 12  | itertools                    | ❌ | запланировано                                          |
 
 ## ▶️ Запуск (примеры)
 ```bash
@@ -59,4 +59,4 @@ python task01_point_distance.py  # пример запуска из step10
 - Реализовано сохранение и загрузка данных в форматах JSON и Pickle.
 - Изучены работа с датами, часовыми поясами и форматированием времени.
 - Применены стандартные библиотеки (`random`, `collections`) для практических задач.
-- Следующие шаги: изучение `functools.lru_cache` и `itertools`.
+- Следующий шаг: изучение `itertools`.
