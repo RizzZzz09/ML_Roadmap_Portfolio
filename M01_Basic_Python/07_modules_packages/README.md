@@ -40,7 +40,7 @@ M01_Basic_Python/
 | 09  | random                       | ✅ | `task01_seed_repeat.py` … `task13_queue_simulation.py` |
 | 10  | collections.Counter          | ✅ | `task01_point_distance.py` … `task12_lru_cache_sim.py` |
 | 11  | functools.lru_cache          | ✅ | `demo_cache.py`                                        |
-| 12  | itertools                    | ❌ | запланировано                                          |
+| 12  | itertools                    | ✅ | запланировано                                          |
 
 ## ▶️ Запуск (примеры)
 ```bash
