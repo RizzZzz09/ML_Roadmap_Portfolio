@@ -10,13 +10,13 @@ class PaymentError(Exception):
 
 
 class PaymentInvalidValue(PaymentError):
-    """Ошибка. Выбрасывается если не удалось привести значение к int."""
+    """Ошибка. Выбрасывается, если не удалось привести значение к int."""
 
     pass
 
 
 class MinAmountViolation(PaymentError):
-    """Ошибка. Выбрасывается если число меньше указанного значения."""
+    """Ошибка. Выбрасывается, если число меньше указанного значения."""
 
     def __init__(self, amount: int, minimum: int):
         self.amount = amount
