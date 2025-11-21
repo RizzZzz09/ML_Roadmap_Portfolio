@@ -25,6 +25,6 @@ testpaths = ["M01_Basic_Python/09_typing_pytest/tests"]
 
 # Ослабляем требования ТОЛЬКО для тестов
 [[tool.mypy.overrides]]
-files = ["M01_Basic_Python/09_typing_pytest/tests/**/*.py"]
+module = "M01_Basic_Python.09_typing_pytest.tests"
 disallow_untyped_defs = false
 check_untyped_defs = false
