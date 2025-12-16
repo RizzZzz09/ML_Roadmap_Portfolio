@@ -54,7 +54,6 @@ Thumbs.db
 # ------------------------
 # Project runtime data
 # ------------------------
-M01_Basic_Python/07_modules_packages/step07_json_pickle/data/*.json
-M01_Basic_Python/07_modules_packages/step07_json_pickle/data/*.pkl
-M01_Basic_Python/07_modules_packages/step08_datetime/data/*.json
-M01_Basic_Python/07_modules_packages/step08_datetime/data/*.pkl
+**/data/*
+!**/data/.gitkeep
+!**/data/README.md
